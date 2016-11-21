@@ -23,7 +23,9 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import javax.annotation.Nullable;
 import org.sosy_lab.common.rationals.Rational;
 import org.sosy_lab.java_smt.api.ArrayFormula;
@@ -35,11 +37,12 @@ import org.sosy_lab.java_smt.api.NumeralFormula.IntegerFormula;
 import org.sosy_lab.java_smt.api.NumeralFormula.RationalFormula;
 
 public abstract class AbstractModel<TFormulaInfo, TType, TEnv> implements Model {
-
+  public Map<String, Object> evaluation;
   protected final FormulaCreator<TFormulaInfo, TType, TEnv, ?> creator;
 
   protected AbstractModel(FormulaCreator<TFormulaInfo, TType, TEnv, ?> creator) {
     this.creator = creator;
+    evaluation = new HashMap<String, Object>();
   }
 
   @Nullable
