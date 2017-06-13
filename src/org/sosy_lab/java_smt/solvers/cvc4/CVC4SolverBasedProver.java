@@ -20,18 +20,14 @@
 package org.sosy_lab.java_smt.solvers.cvc4;
 
 import com.google.common.base.Preconditions;
-
 import edu.nyu.acsys.CVC4.Expr;
 import edu.nyu.acsys.CVC4.Result;
 import edu.nyu.acsys.CVC4.SmtEngine;
-
-import org.sosy_lab.java_smt.api.BooleanFormula;
-import org.sosy_lab.java_smt.api.SolverException;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.annotation.Nullable;
+import org.sosy_lab.java_smt.api.BooleanFormula;
+import org.sosy_lab.java_smt.api.SolverException;
 
 public abstract class CVC4SolverBasedProver<T> extends CVC4AbstractProver<T> {
   private final SmtEngine smtEngine;
@@ -48,8 +44,6 @@ public abstract class CVC4SolverBasedProver<T> extends CVC4AbstractProver<T> {
     Preconditions.checkState(!closed);
     smtEngine.push();
   }
-
-
 
   @Nullable
   public Expr addConstraint0(BooleanFormula pF) {
@@ -97,5 +91,4 @@ public abstract class CVC4SolverBasedProver<T> extends CVC4AbstractProver<T> {
   protected CVC4Model getCVC4Model() {
     return getModel();
   }
-
 }

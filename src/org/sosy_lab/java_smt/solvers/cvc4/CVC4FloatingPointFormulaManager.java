@@ -22,19 +22,17 @@ package org.sosy_lab.java_smt.solvers.cvc4;
 import edu.nyu.acsys.CVC4.Expr;
 import edu.nyu.acsys.CVC4.ExprManager;
 import edu.nyu.acsys.CVC4.Type;
-
+import java.math.BigDecimal;
 import org.sosy_lab.java_smt.api.FloatingPointRoundingMode;
 import org.sosy_lab.java_smt.api.FormulaType;
 import org.sosy_lab.java_smt.api.FormulaType.FloatingPointType;
 import org.sosy_lab.java_smt.basicimpl.AbstractFloatingPointFormulaManager;
 
-import java.math.BigDecimal;
-
-public class CVC4FloatingPointFormulaManager extends AbstractFloatingPointFormulaManager<Expr, Type, ExprManager, Expr> {
+public class CVC4FloatingPointFormulaManager
+    extends AbstractFloatingPointFormulaManager<Expr, Type, ExprManager, Expr> {
   protected final ExprManager exprManager;
 
-  protected CVC4FloatingPointFormulaManager(
-      CVC4FormulaCreator pCreator) {
+  protected CVC4FloatingPointFormulaManager(CVC4FormulaCreator pCreator) {
     super(pCreator);
     exprManager = pCreator.getExprManager();
   }
@@ -53,22 +51,22 @@ public class CVC4FloatingPointFormulaManager extends AbstractFloatingPointFormul
   }
 
   @Override
-  protected Expr makeNumberImpl(double pN, FloatingPointType pType,
-      Expr pFloatingPointRoundingMode) {
+  protected Expr makeNumberImpl(
+      double pN, FloatingPointType pType, Expr pFloatingPointRoundingMode) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  protected Expr makeNumberImpl(BigDecimal pN, FloatingPointType pType,
-      Expr pFloatingPointRoundingMode) {
+  protected Expr makeNumberImpl(
+      BigDecimal pN, FloatingPointType pType, Expr pFloatingPointRoundingMode) {
     // TODO Auto-generated method stub
     return null;
   }
 
   @Override
-  protected Expr makeNumberImpl(String pN, FloatingPointType pType,
-      Expr pFloatingPointRoundingMode) {
+  protected Expr makeNumberImpl(
+      String pN, FloatingPointType pType, Expr pFloatingPointRoundingMode) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -104,8 +102,8 @@ public class CVC4FloatingPointFormulaManager extends AbstractFloatingPointFormul
   }
 
   @Override
-  protected Expr castFromImpl(Expr pNumber, boolean pSigned, FloatingPointType pTargetType,
-      Expr pRoundingMode) {
+  protected Expr castFromImpl(
+      Expr pNumber, boolean pSigned, FloatingPointType pTargetType, Expr pRoundingMode) {
     // TODO Auto-generated method stub
     return null;
   }
@@ -199,5 +197,4 @@ public class CVC4FloatingPointFormulaManager extends AbstractFloatingPointFormul
     // TODO Auto-generated method stub
     return null;
   }
-
 }

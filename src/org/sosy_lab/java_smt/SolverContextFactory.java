@@ -132,7 +132,6 @@ public class SolverContextFactory {
   private SolverContext generateContext0(Solvers solverToCreate)
       throws InvalidConfigurationException {
     switch (solverToCreate) {
-
       case CVC4:
         return CVC4SolverContext.create(
             logger, config, shutdownNotifier, logfile, (int) randomSeed);
@@ -156,8 +155,6 @@ public class SolverContextFactory {
       case PRINCESS:
         // TODO: pass randomSeed to Princess
         return PrincessSolverContext.create(config, shutdownNotifier, logfile);
-
-
 
       default:
         throw new AssertionError("no solver selected");

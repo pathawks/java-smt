@@ -3,7 +3,8 @@ package org.sosy_lab.java_smt.solvers.cvc4;
 import edu.nyu.acsys.CVC4.CVC4JNI;
 import edu.nyu.acsys.CVC4.ExprManager;
 import edu.nyu.acsys.CVC4.Type;
-
+import java.util.Set;
+import javax.annotation.Nullable;
 import org.sosy_lab.common.NativeLibraries;
 import org.sosy_lab.common.ShutdownNotifier;
 import org.sosy_lab.common.configuration.Configuration;
@@ -17,10 +18,6 @@ import org.sosy_lab.java_smt.api.OptimizationProverEnvironment;
 import org.sosy_lab.java_smt.api.ProverEnvironment;
 import org.sosy_lab.java_smt.api.SolverContext;
 import org.sosy_lab.java_smt.basicimpl.AbstractSolverContext;
-
-import java.util.Set;
-
-import javax.annotation.Nullable;
 
 public final class CVC4SolverContext extends AbstractSolverContext {
   private final CVC4FormulaManager manager;
@@ -53,7 +50,8 @@ public final class CVC4SolverContext extends AbstractSolverContext {
     Type realType = exprManager.realType();
 
     // Create CVC4FormulaCreator
-    CVC4FormulaCreator creator = new CVC4FormulaCreator(randomSeed, exprManager, boolType, intType, realType);
+    CVC4FormulaCreator creator =
+        new CVC4FormulaCreator(randomSeed, exprManager, boolType, intType, realType);
 
     // Create managers
     CVC4UFManager functionTheory = new CVC4UFManager(creator);
@@ -61,8 +59,9 @@ public final class CVC4SolverContext extends AbstractSolverContext {
     CVC4IntegerFormulaManager integerTheory = new CVC4IntegerFormulaManager(creator);
     CVC4RationalFormulaManager rationalTheory = new CVC4RationalFormulaManager(creator);
     CVC4ArrayFormulaManager arrayTheory = new CVC4ArrayFormulaManager(creator);
-    CVC4FormulaManager manager = new CVC4FormulaManager(creator, functionTheory, booleanTheory,
-                                                        integerTheory, rationalTheory, arrayTheory);
+    CVC4FormulaManager manager =
+        new CVC4FormulaManager(
+            creator, functionTheory, booleanTheory, integerTheory, rationalTheory, arrayTheory);
 
     return new CVC4SolverContext(creator, config, logger, manager);
   }
